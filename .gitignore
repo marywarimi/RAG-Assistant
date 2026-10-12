@@ -18,3 +18,4 @@ Data/papers/raw/*
 Data/vectorstore/*
 !Data/papers/raw/.gitkeep
 !Data/vectorstore/.gitkeep
+*.code-workspace 
