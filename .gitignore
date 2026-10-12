@@ -1,0 +1,20 @@
+# Virtual environment and secrets
+.venv/
+.env
+
+# Python scratch files
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Notebook scratch files
+.ipynb_checkpoints/
+
+# Windows junk
+Thumbs.db
+
+# Big or private data (keep the folders, ignore what's inside)
+Data/papers/raw/*
+Data/vectorstore/*
+!Data/papers/raw/.gitkeep
+!Data/vectorstore/.gitkeep

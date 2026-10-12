@@ -1,0 +1,5 @@
+streamlit       #upload page 
+pypdf           #reads texts out of PDFs
+python-dotenv   #reads your secret keys from .env
+pytest          #runs your tests
+ipykernel       #lets your notebook use the .venv
