@@ -1,0 +1,34 @@
+[
+  {
+    "question": "What is a file system?",
+    "expected_page": 1
+  },
+  {
+    "question": "Define a database",
+    "expected_page": 1
+  },
+  {
+    "question": "Give me the application of Database Management System",
+    "expected_page": 1
+  },
+  {
+    "question": "give me 3 differences between file system and DBMS",
+    "expected_page": 1
+  },
+  {
+    "question": "Name the components of DBMS",
+    "expected_page": 3
+  },
+  {
+    "question": "State of functions of DBMS functions",
+    "expected_page": 3
+  },
+  {
+    "question":"Describe what data is",
+    "expected_page": 3
+  },
+  {
+    "question": "explain types of DBMS",
+    "expected_page": 2
+  }
+]
