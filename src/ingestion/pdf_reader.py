@@ -1,12 +1,6 @@
 from pathlib import Path
 from pypdf import PdfReader
-pdf_path= Path("Data/papers/raw/Lesson01-Introduction.pdf")
-print(pdf_path.exists())
-reader= PdfReader(pdf_path)
-print(len(reader.pages))
-first_page= reader.pages[0]
-text= first_page.extract_text()
-print(text[:500])
+
 def load_pdf(pdf_path):
     pdf_path = Path(pdf_path)
     if not pdf_path.exists():
