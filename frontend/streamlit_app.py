@@ -1,6 +1,16 @@
 import streamlit as st
 
+from pathlib import Path
+import sys
+
+sys.path.append(str(Path(__file__).parent.parent))
+
+from src.ingestion.pdf_reader import load_pdf
+
 MAX_FILE_MB = 20
+
+# Project root = two folders up from this file (frontend/streamlit_app.py)
+RAW_DIR = Path(__file__).parent.parent / "Data" / "papers" / "raw"
 
 # Insert code here: st.set_page_config with a page_title and a page_icon (an emoji)
 st.set_page_config(
@@ -41,14 +51,18 @@ uploaded_file = st.file_uploader(
 )
 
 st.caption(f"PDF only, up to {MAX_FILE_MB} MB")
-
 if uploaded_file is not None:
     file_size_mb = uploaded_file.size / (1024 * 1024)
 
     if file_size_mb > MAX_FILE_MB:
         st.error(f"Your file exceeds the {MAX_FILE_MB} MB limit.")
     else:
+        RAW_DIR.mkdir(parents=True, exist_ok=True)
+        save_path = RAW_DIR / uploaded_file.name
+        save_path.write_bytes(uploaded_file.getbuffer())
+
         st.success(f"Uploaded successfully: {uploaded_file.name}")
+        
 
 # ---------- Question area ----------
 # Insert code here: st.subheader("2. Ask a question")
