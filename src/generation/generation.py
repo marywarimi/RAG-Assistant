@@ -24,7 +24,7 @@ Rules:
 - If the answer is not in the context, say you could not find it in the provided documents.
 - Do not invent facts.
 - Give a clear, understandable answer.
-- Mention the source and page your answer came from.
+- Do not write a Source or Page line. The app shows the sources separately.
 
 Context:
 {context}
