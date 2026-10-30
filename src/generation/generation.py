@@ -3,7 +3,8 @@
 import os
 from dotenv import load_dotenv
 from google import genai
-from src.retrieval.retrieval import retrieve   # fix this line using the rule above
+from src.retrieval.retrieval import retrieve   
+from src.reranking.reranking import rerank
 
 load_dotenv()
 api_key = os.getenv("GEMINI_API_KEY")
@@ -47,13 +48,17 @@ def generate_answer(question, chunks):
 
     return response.text
 
-
 if __name__ == "__main__":
     question = input("Ask a question about your documents: ")
 
-    chunks = retrieve(question)
+    # 1. Get 10 chunks that look close to the question
+    chunks = retrieve(question, top_k=10)
 
-    answer = generate_answer(question, chunks)
+    # 2. Let the re-ranker pick the best 3 of those 10
+    best_chunks = rerank(question, chunks, top_n=3)
+
+    # 3. Send only the best 3 to Gemini
+    answer = generate_answer(question, best_chunks)
 
     print("\nAnswer:")
     print(answer)
