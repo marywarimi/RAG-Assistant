@@ -10,6 +10,7 @@ from src.chunking.chunker import chunk_pages              # NEW (fixed)
 from src.embeddings.embedder import embed_chunks          # NEW (fixed)
 from src.vectorstore.store import store_chunks   
 from src.retrieval.retrieval import retrieve
+from src.reranking.reranking import rerank
 from src.generation.generation import generate_answer
 from src.ingestion.pptx_reader import load_pptx         # NEW (fixed)
 
@@ -95,11 +96,12 @@ if ask_clicked:
 
     else:
         with st.spinner("Finding an answer..."):
-            chunks = retrieve(question)
-            answer = generate_answer(question, chunks)
+            candidates = retrieve(question, top_k=10)
+            best_chunks = rerank(question, candidates, top_n=3)
+            answer = generate_answer(question, best_chunks)
 
         st.info(answer)
 
         with st.expander("Sources"):
-            for chunk in chunks:
+            for chunk in best_chunks:
                 st.write(f"{chunk['source']} - page {chunk['page']}")
