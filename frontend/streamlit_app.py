@@ -10,7 +10,8 @@ from src.chunking.chunker import chunk_pages              # NEW (fixed)
 from src.embeddings.embedder import embed_chunks          # NEW (fixed)
 from src.vectorstore.store import store_chunks   
 from src.retrieval.retrieval import retrieve
-from src.generation.generation import generate_answer         # NEW (fixed)
+from src.generation.generation import generate_answer
+from src.ingestion.pptx_reader import load_pptx         # NEW (fixed)
 
 MAX_FILE_MB = 20
 
@@ -42,12 +43,12 @@ st.subheader("1. Upload your paper")
 
 uploaded_file = st.file_uploader(
     "Choose a research paper",
-    type=["pdf"],
-    help=f"Upload a PDF file up to {MAX_FILE_MB} MB.",
+    type=["pdf", "pptx"],
+    help=f"Upload a PDF or PowerPoint file up to {MAX_FILE_MB} MB.",
     max_upload_size=MAX_FILE_MB
 )
 
-st.caption(f"PDF only, up to {MAX_FILE_MB} MB")
+st.caption(f"PDF or PowerPoint (.pptx), up to {MAX_FILE_MB} MB")
 
 if uploaded_file is not None:
     file_size_mb = uploaded_file.size / (1024 * 1024)
@@ -64,7 +65,10 @@ if uploaded_file is not None:
         # NEW: prepare the paper only ONE time per file
         if st.session_state.get("prepared_file") != uploaded_file.name:
             with st.spinner("Reading your paper..."):
-                pages = load_pdf(save_path)
+                if save_path.suffix.lower() == ".pptx":
+                    pages = load_pptx(save_path)
+                else:
+                    pages = load_pdf(save_path)
                 chunks = chunk_pages(pages)
                 chunks = embed_chunks(chunks)
                 store_chunks(chunks)
