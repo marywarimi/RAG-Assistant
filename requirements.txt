@@ -6,3 +6,4 @@ ipykernel       #lets your notebook use the .venv
 chromadb        #stores and searches embeddings
 google-genai
 python-dotenv
+python-pptx
