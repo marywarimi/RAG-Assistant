@@ -1,13 +1,19 @@
 
 import chromadb
 from sentence_transformers import SentenceTransformer
+from functools import lru_cache
+
+
+@lru_cache(maxsize=None)
+def get_embedding_model(model_name):
+    return SentenceTransformer(model_name)
 
 
 def retrieve(question, top_k=3, db_path="Data/vectorstore",
              collection_name="lessons", model_name="all-MiniLM-L6-v2"):
 
     # 1. Load the same embedding model used before
-    model = SentenceTransformer(model_name)
+    model = get_embedding_model(model_name)
 
     # 2. Convert the question into numbers
     question_embedding = model.encode(question).tolist()
