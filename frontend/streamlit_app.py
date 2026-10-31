@@ -1,5 +1,5 @@
 import streamlit as st
-
+import time
 from pathlib import Path
 import sys
 
@@ -95,13 +95,28 @@ if ask_clicked:
         st.warning("Please upload a paper first.")
 
     else:
+        start = time.time()
+
         with st.spinner("Finding an answer..."):
+            t0 = time.time()
             candidates = retrieve(question, top_k=10)
+            t_retrieve = time.time() - t0
+
+            t0 = time.time()
             best_chunks = rerank(question, candidates, top_n=3)
+            t_rerank = time.time() - t0
+
+            t0 = time.time()
             answer = generate_answer(question, best_chunks)
+            t_generate = time.time() - t0
+
+        elapsed = time.time() - start
 
         st.info(answer)
-
+        st.caption(
+            f"Answered in {elapsed:.1f}s "
+            f"(retrieve {t_retrieve:.1f}s, rerank {t_rerank:.1f}s, Gemini {t_generate:.1f}s)"
+        )
         with st.expander("Sources"):
             for chunk in best_chunks:
                 st.write(f"{chunk['source']} - page {chunk['page']}")

@@ -1,11 +1,16 @@
 from sentence_transformers import CrossEncoder
+from functools import lru_cache
 
+
+@lru_cache(maxsize=None)
+def get_reranker(model_name):
+    return CrossEncoder(model_name)
 
 def rerank(question, results, top_n=3,
            model_name="cross-encoder/ms-marco-MiniLM-L-6-v2"):
 
     # 1. Load the cross-encoder model
-    model = CrossEncoder(model_name)
+    model = get_reranker(model_name)
 
     # 2. Make a pair [question, chunk text] for every chunk
     pairs = [[question, result["text"]] for result in results]
