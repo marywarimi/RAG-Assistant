@@ -1,34 +1,142 @@
 [
   {
-    "question": "What is a file system?",
-    "expected_page": 1
+    "id": "os-1",
+    "question": "What is an Operating System, and what primary role does it serve in managing computer resources?",
+    "source": "LESSON 1 (2).pptx",
+    "expected_pages": [7],
+    "expected_answer": "An operating system is system software that interfaces between the user and hardware, controlling operations and resources (CPU time, memory, file storage, I/O devices) without manual intervention."
   },
   {
-    "question": "Define a database",
-    "expected_page": 1
+    "id": "os-2",
+    "question": "How are operating systems classified based on user interface types, and what is an example of a GUI OS?",
+    "source": "LESSON 1 (2).pptx",
+    "expected_pages": [10],
+    "expected_answer": "They are classified into Command Line Interface (CLI), Menu Driven Interface, and Graphical User Interface (GUI). Examples of GUI OS include Windows, Linux, and macOS."
   },
   {
-    "question": "Give me the application of Database Management System",
-    "expected_page": 1
+    "id": "os-3",
+    "question": "What is a system call, and why does Notepad require a system call to open a text file?",
+    "source": "LESSON 1 (2).pptx",
+    "expected_pages": [15],
+    "expected_answer": "A system call is a request by a program to the OS for a service/resource it lacks permission to control directly. Notepad cannot access the disk directly, so it issues an open() system call to request the OS to fetch the file."
   },
   {
-    "question": "give me 3 differences between file system and DBMS",
-    "expected_page": 1
+    "id": "os-4",
+    "question": "What are the two execution modes in an operating system, and what is the main risk of kernel mode?",
+    "source": "LESSON 1 (2).pptx",
+    "expected_pages": [15],
+    "expected_answer": "User mode (restricted environment) and Kernel mode (full hardware access). The risk is that if a program crashes while executing in kernel mode, the entire system crashes."
   },
   {
-    "question": "Name the components of DBMS",
-    "expected_page": 3
+    "id": "os-5",
+    "question": "What is an operating system interrupt, and how does it benefit multitasking?",
+    "source": "LESSON 1 (2).pptx",
+    "expected_pages": [20],
+    "expected_answer": "An interrupt is a signal sent from hardware or software prompting the OS to temporarily stop its current task and run an interrupt handler. It enables applications to interrupt each other, creating the illusion that multiple programs are running simultaneously."
   },
   {
-    "question": "State of functions of DBMS functions",
-    "expected_page": 3
+    "id": "ai-1",
+    "question": "What are the three classifications of Artificial Intelligence mentioned in the guidebook?",
+    "source": "The Ultimate AI Cheatsheet .pdf",
+    "expected_pages": [2],
+    "expected_answer": "Narrow AI (designed for specific tasks), General AI (human-level intelligence across multiple domains), and Super AI (surpassing human intelligence in all domains)."
   },
   {
-    "question":"Describe what data is",
-    "expected_page": 3
+    "id": "ai-2",
+    "question": "What is the difference between Supervised Learning and Unsupervised Learning?",
+    "source": "The Ultimate AI Cheatsheet .pdf",
+    "expected_pages": [3, 4],
+    "expected_answer": "Supervised Learning uses labeled data (input and target output) to predict outcomes for unseen data, whereas Unsupervised Learning uses unlabeled data (inputs only) to discover hidden patterns or structures (e.g., clustering)."
   },
   {
-    "question": "explain types of DBMS",
-    "expected_page": 2
+    "id": "ai-3",
+    "question": "What are the six main components of Reinforcement Learning?",
+    "source": "The Ultimate AI Cheatsheet .pdf",
+    "expected_pages": [5],
+    "expected_answer": "Action, Environment, State, Agent, Policy, and Reward."
+  },
+  {
+    "id": "ai-4",
+    "question": "What is the purpose of Generative Adversarial Networks (GANs), and what are its two core components?",
+    "source": "The Ultimate AI Cheatsheet .pdf",
+    "expected_pages": [8, 14],
+    "expected_answer": "GANs generate realistic data samples through an adversarial process. They consist of a Generator (creates new samples) and a Discriminator (distinguishes between real and generated samples)."
+  },
+  {
+    "id": "ai-5",
+    "question": "How does BERT differ from GPT in terms of architecture and pre-training objectives?",
+    "source": "The Ultimate AI Cheatsheet .pdf",
+    "expected_pages": [17],
+    "expected_answer": "BERT is an Encoder-based model pre-trained using masked language modeling and next sentence prediction for language understanding. GPT is a Decoder-based model pre-trained to predict the next token/text for generative tasks."
+  },
+  {
+    "id": "hw-1",
+    "question": "What are the three primary operations repeated by the Control Unit in the CPU?",
+    "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+    "expected_pages": [2],
+    "expected_answer": "Fetch (get instruction from memory), Decode (translate instruction into commands), and Execute (cause instruction to be executed)."
+  },
+  {
+    "id": "hw-2",
+    "question": "How does Static RAM (SRAM) differ from Dynamic RAM (DRAM)?",
+    "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+    "expected_pages": [3],
+    "expected_answer": "Static RAM does not need to be refreshed, making it faster but more expensive. Dynamic RAM needs to be refreshed thousands of times per second. Both are volatile."
+  },
+  {
+    "id": "hw-3",
+    "question": "How is Erasable Programmable ROM (EPROM) erased and reprogrammed?",
+    "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+    "expected_pages": [4],
+    "expected_answer": "An EPROM has a small glass window on top. Shining ultraviolet (UV) light of a specific frequency through the window for a set time erases the chip, allowing it to be reprogrammed."
+  },
+  {
+    "id": "hw-4",
+    "question": "What is Cache Memory, and where is it situated in a computer system?",
+    "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+    "expected_pages": [4],
+    "expected_answer": "Cache memory is very fast memory that acts as an intermediate store between the CPU (Processor) and Main Memory (RAM), storing frequently/recently used data to speed up retrieval."
+  },
+  {
+    "id": "hw-5",
+    "question": "How many bits make up a byte, and how many bytes are in a Kilobyte (KB)?",
+    "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+    "expected_pages": [6],
+    "expected_answer": "A group of 8 bits makes up a byte. There are 1,024 bytes in a Kilobyte (KB)."
+  },
+  {
+    "id": "db-1",
+    "question": "State three key differences between a traditional File System and a DBMS.",
+    "source": "Lesson01-Introduction.pdf",
+    "expected_pages": [1],
+    "expected_answer": "File systems are prone to data redundancy, while DBMS eliminates it. File systems lack automated backup/recovery, which DBMS provides. DBMS provides stronger security and data consistency than file systems."
+  },
+  {
+    "id": "db-2",
+    "question": "How is data structured in a Hierarchical Database Model versus a Network Database Model?",
+    "source": "Lesson01-Introduction.pdf",
+    "expected_pages": [2],
+    "expected_answer": "In a Hierarchical Model, data is organized in a tree-like structure where a child can have only one parent. In a Network Model, entities are organized in a graph where a child can have multiple parents."
+  },
+  {
+    "id": "db-3",
+    "question": "What are the five main components of a Database Management System?",
+    "source": "Lesson01-Introduction.pdf",
+    "expected_pages": [3],
+    "expected_answer": "Hardware, Software, Data, Procedures, and Database Access Language."
+  },
+  {
+    "id": "db-4",
+    "question": "What is a Data Dictionary in DBMS, and why is it useful?",
+    "source": "Lesson01-Introduction.pdf",
+    "expected_pages": [3, 4],
+    "expected_answer": "A Data Dictionary stores metadata (definitions of data elements and relationships). It removes structural/data dependency and provides data abstraction for database administrators and programmers."
+  },
+  {
+    "id": "db-5",
+    "question": "What do the ACID properties stand for in transaction management, and what does Durability ensure?",
+    "source": "Lesson01-Introduction.pdf",
+    "expected_pages": [5],
+    "expected_answer": "ACID stands for Atomicity, Consistency, Isolation, and Durability. Durability ensures that once a transaction completes successfully, its changes are permanently saved and will not be lost to system failures."
   }
 ]

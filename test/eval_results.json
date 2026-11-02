@@ -1,0 +1,485 @@
+[
+  {
+    "id": "os-1",
+    "question": "What is an Operating System, and what primary role does it serve in managing computer resources?",
+    "source": "LESSON 1 (2).pptx",
+    "expected_pages": [
+      7
+    ],
+    "retrieve_position": 1,
+    "rerank_position": 1,
+    "final_chunks": [
+      {
+        "source": "LESSON 1 (2).pptx",
+        "page": 7
+      },
+      {
+        "source": "LESSON 1 (2).pptx",
+        "page": 3
+      },
+      {
+        "source": "LESSON 1 (2).pptx",
+        "page": 7
+      }
+    ]
+  },
+  {
+    "id": "os-2",
+    "question": "How are operating systems classified based on user interface types, and what is an example of a GUI OS?",
+    "source": "LESSON 1 (2).pptx",
+    "expected_pages": [
+      10
+    ],
+    "retrieve_position": null,
+    "rerank_position": null,
+    "final_chunks": [
+      {
+        "source": "LESSON 1 (2).pptx",
+        "page": 7
+      },
+      {
+        "source": "LESSON 1 (2).pptx",
+        "page": 23
+      },
+      {
+        "source": "LESSON 1 (2).pptx",
+        "page": 7
+      }
+    ]
+  },
+  {
+    "id": "os-3",
+    "question": "What is a system call, and why does Notepad require a system call to open a text file?",
+    "source": "LESSON 1 (2).pptx",
+    "expected_pages": [
+      15
+    ],
+    "retrieve_position": 4,
+    "rerank_position": 3,
+    "final_chunks": [
+      {
+        "source": "LESSON 1 (2).pptx",
+        "page": 17
+      },
+      {
+        "source": "LESSON 1 (2).pptx",
+        "page": 17
+      },
+      {
+        "source": "LESSON 1 (2).pptx",
+        "page": 15
+      }
+    ]
+  },
+  {
+    "id": "os-4",
+    "question": "What are the two execution modes in an operating system, and what is the main risk of kernel mode?",
+    "source": "LESSON 1 (2).pptx",
+    "expected_pages": [
+      15
+    ],
+    "retrieve_position": 1,
+    "rerank_position": 1,
+    "final_chunks": [
+      {
+        "source": "LESSON 1 (2).pptx",
+        "page": 15
+      },
+      {
+        "source": "LESSON 1 (2).pptx",
+        "page": 15
+      },
+      {
+        "source": "LESSON 1 (2).pptx",
+        "page": 15
+      }
+    ]
+  },
+  {
+    "id": "os-5",
+    "question": "What is an operating system interrupt, and how does it benefit multitasking?",
+    "source": "LESSON 1 (2).pptx",
+    "expected_pages": [
+      20
+    ],
+    "retrieve_position": 2,
+    "rerank_position": 2,
+    "final_chunks": [
+      {
+        "source": "LESSON 1 (2).pptx",
+        "page": 21
+      },
+      {
+        "source": "LESSON 1 (2).pptx",
+        "page": 20
+      },
+      {
+        "source": "LESSON 1 (2).pptx",
+        "page": 22
+      }
+    ]
+  },
+  {
+    "id": "ai-1",
+    "question": "What are the three classifications of Artificial Intelligence mentioned in the guidebook?",
+    "source": "The Ultimate AI Cheatsheet .pdf",
+    "expected_pages": [
+      2
+    ],
+    "retrieve_position": 1,
+    "rerank_position": 1,
+    "final_chunks": [
+      {
+        "source": "The Ultimate AI Cheatsheet .pdf",
+        "page": 2
+      },
+      {
+        "source": "The Ultimate AI Cheatsheet .pdf",
+        "page": 18
+      },
+      {
+        "source": "The Ultimate AI Cheatsheet .pdf",
+        "page": 3
+      }
+    ]
+  },
+  {
+    "id": "ai-2",
+    "question": "What is the difference between Supervised Learning and Unsupervised Learning?",
+    "source": "The Ultimate AI Cheatsheet .pdf",
+    "expected_pages": [
+      3,
+      4
+    ],
+    "retrieve_position": 1,
+    "rerank_position": 1,
+    "final_chunks": [
+      {
+        "source": "The Ultimate AI Cheatsheet .pdf",
+        "page": 3
+      },
+      {
+        "source": "The Ultimate AI Cheatsheet .pdf",
+        "page": 4
+      },
+      {
+        "source": "The Ultimate AI Cheatsheet .pdf",
+        "page": 4
+      }
+    ]
+  },
+  {
+    "id": "ai-3",
+    "question": "What are the six main components of Reinforcement Learning?",
+    "source": "The Ultimate AI Cheatsheet .pdf",
+    "expected_pages": [
+      5
+    ],
+    "retrieve_position": 1,
+    "rerank_position": 1,
+    "final_chunks": [
+      {
+        "source": "The Ultimate AI Cheatsheet .pdf",
+        "page": 5
+      },
+      {
+        "source": "The Ultimate AI Cheatsheet .pdf",
+        "page": 16
+      },
+      {
+        "source": "The Ultimate AI Cheatsheet .pdf",
+        "page": 5
+      }
+    ]
+  },
+  {
+    "id": "ai-4",
+    "question": "What is the purpose of Generative Adversarial Networks (GANs), and what are its two core components?",
+    "source": "The Ultimate AI Cheatsheet .pdf",
+    "expected_pages": [
+      8,
+      14
+    ],
+    "retrieve_position": 1,
+    "rerank_position": 1,
+    "final_chunks": [
+      {
+        "source": "The Ultimate AI Cheatsheet .pdf",
+        "page": 14
+      },
+      {
+        "source": "The Ultimate AI Cheatsheet .pdf",
+        "page": 14
+      },
+      {
+        "source": "The Ultimate AI Cheatsheet .pdf",
+        "page": 8
+      }
+    ]
+  },
+  {
+    "id": "ai-5",
+    "question": "How does BERT differ from GPT in terms of architecture and pre-training objectives?",
+    "source": "The Ultimate AI Cheatsheet .pdf",
+    "expected_pages": [
+      17
+    ],
+    "retrieve_position": 1,
+    "rerank_position": 1,
+    "final_chunks": [
+      {
+        "source": "The Ultimate AI Cheatsheet .pdf",
+        "page": 17
+      },
+      {
+        "source": "The Ultimate AI Cheatsheet .pdf",
+        "page": 17
+      },
+      {
+        "source": "The Ultimate AI Cheatsheet .pdf",
+        "page": 17
+      }
+    ]
+  },
+  {
+    "id": "hw-1",
+    "question": "What are the three primary operations repeated by the Control Unit in the CPU?",
+    "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+    "expected_pages": [
+      2
+    ],
+    "retrieve_position": 1,
+    "rerank_position": 1,
+    "final_chunks": [
+      {
+        "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+        "page": 2
+      },
+      {
+        "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+        "page": 2
+      },
+      {
+        "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+        "page": 2
+      }
+    ]
+  },
+  {
+    "id": "hw-2",
+    "question": "How does Static RAM (SRAM) differ from Dynamic RAM (DRAM)?",
+    "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+    "expected_pages": [
+      3
+    ],
+    "retrieve_position": 1,
+    "rerank_position": 1,
+    "final_chunks": [
+      {
+        "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+        "page": 3
+      },
+      {
+        "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+        "page": 3
+      },
+      {
+        "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+        "page": 3
+      }
+    ]
+  },
+  {
+    "id": "hw-3",
+    "question": "How is Erasable Programmable ROM (EPROM) erased and reprogrammed?",
+    "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+    "expected_pages": [
+      4
+    ],
+    "retrieve_position": 1,
+    "rerank_position": 1,
+    "final_chunks": [
+      {
+        "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+        "page": 4
+      },
+      {
+        "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+        "page": 4
+      },
+      {
+        "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+        "page": 4
+      }
+    ]
+  },
+  {
+    "id": "hw-4",
+    "question": "What is Cache Memory, and where is it situated in a computer system?",
+    "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+    "expected_pages": [
+      4
+    ],
+    "retrieve_position": 1,
+    "rerank_position": 1,
+    "final_chunks": [
+      {
+        "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+        "page": 4
+      },
+      {
+        "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+        "page": 4
+      },
+      {
+        "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+        "page": 3
+      }
+    ]
+  },
+  {
+    "id": "hw-5",
+    "question": "How many bits make up a byte, and how many bytes are in a Kilobyte (KB)?",
+    "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+    "expected_pages": [
+      6
+    ],
+    "retrieve_position": 6,
+    "rerank_position": null,
+    "final_chunks": [
+      {
+        "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+        "page": 7
+      },
+      {
+        "source": "LESSON 1 (2).pptx",
+        "page": 1
+      },
+      {
+        "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
+        "page": 7
+      }
+    ]
+  },
+  {
+    "id": "db-1",
+    "question": "State three key differences between a traditional File System and a DBMS.",
+    "source": "Lesson01-Introduction.pdf",
+    "expected_pages": [
+      1
+    ],
+    "retrieve_position": 1,
+    "rerank_position": 1,
+    "final_chunks": [
+      {
+        "source": "Lesson01-Introduction.pdf",
+        "page": 1
+      },
+      {
+        "source": "Lesson01-Introduction.pdf",
+        "page": 1
+      },
+      {
+        "source": "Lesson01-Introduction.pdf",
+        "page": 1
+      }
+    ]
+  },
+  {
+    "id": "db-2",
+    "question": "How is data structured in a Hierarchical Database Model versus a Network Database Model?",
+    "source": "Lesson01-Introduction.pdf",
+    "expected_pages": [
+      2
+    ],
+    "retrieve_position": 1,
+    "rerank_position": 1,
+    "final_chunks": [
+      {
+        "source": "Lesson01-Introduction.pdf",
+        "page": 2
+      },
+      {
+        "source": "Lesson01-Introduction.pdf",
+        "page": 2
+      },
+      {
+        "source": "Lesson01-Introduction.pdf",
+        "page": 2
+      }
+    ]
+  },
+  {
+    "id": "db-3",
+    "question": "What are the five main components of a Database Management System?",
+    "source": "Lesson01-Introduction.pdf",
+    "expected_pages": [
+      3
+    ],
+    "retrieve_position": 1,
+    "rerank_position": 1,
+    "final_chunks": [
+      {
+        "source": "Lesson01-Introduction.pdf",
+        "page": 3
+      },
+      {
+        "source": "Lesson01-Introduction.pdf",
+        "page": 3
+      },
+      {
+        "source": "Lesson01-Introduction.pdf",
+        "page": 1
+      }
+    ]
+  },
+  {
+    "id": "db-4",
+    "question": "What is a Data Dictionary in DBMS, and why is it useful?",
+    "source": "Lesson01-Introduction.pdf",
+    "expected_pages": [
+      3,
+      4
+    ],
+    "retrieve_position": 1,
+    "rerank_position": 1,
+    "final_chunks": [
+      {
+        "source": "Lesson01-Introduction.pdf",
+        "page": 4
+      },
+      {
+        "source": "Lesson01-Introduction.pdf",
+        "page": 4
+      },
+      {
+        "source": "Lesson01-Introduction.pdf",
+        "page": 3
+      }
+    ]
+  },
+  {
+    "id": "db-5",
+    "question": "What do the ACID properties stand for in transaction management, and what does Durability ensure?",
+    "source": "Lesson01-Introduction.pdf",
+    "expected_pages": [
+      5
+    ],
+    "retrieve_position": 1,
+    "rerank_position": 1,
+    "final_chunks": [
+      {
+        "source": "Lesson01-Introduction.pdf",
+        "page": 5
+      },
+      {
+        "source": "Lesson01-Introduction.pdf",
+        "page": 5
+      },
+      {
+        "source": "Lesson01-Introduction.pdf",
+        "page": 5
+      }
+    ]
+  }
+]
