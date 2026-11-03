@@ -342,10 +342,10 @@
     "question": "How many bits make up a byte, and how many bytes are in a Kilobyte (KB)?",
     "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
     "expected_pages": [
-      6
+      7
     ],
-    "retrieve_position": 6,
-    "rerank_position": null,
+    "retrieve_position": 1,
+    "rerank_position": 1,
     "final_chunks": [
       {
         "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
