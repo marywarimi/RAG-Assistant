@@ -101,7 +101,7 @@
     "id": "hw-5",
     "question": "How many bits make up a byte, and how many bytes are in a Kilobyte (KB)?",
     "source": "CHAPTER 2 BASIC HARDWARE UNITS OF A COMPUTER.pdf",
-    "expected_pages": [6],
+    "expected_pages": [7],
     "expected_answer": "A group of 8 bits makes up a byte. There are 1,024 bytes in a Kilobyte (KB)."
   },
   {
