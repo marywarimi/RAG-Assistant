@@ -4,7 +4,7 @@
 
 DocuMind is an AI-powered document intelligence application that lets organizations interact with their internal knowledge base. Users upload documents (PDF and PowerPoint), ask questions in plain language, and receive context-aware answers generated with Retrieval-Augmented Generation (RAG). Every answer shows the document and page it came from, so it can be checked.
 
-**Live demo:** coming soon
+**Live demo:** [Open Documind](https://documind-mary.streamlit.app/)
 
 ---
 
@@ -13,19 +13,20 @@ DocuMind is an AI-powered document intelligence application that lets organizati
 1. [Project Overview](#project-overview)
 2. [Problem Statement](#problem-statement)
 3. [Who Can Use It](#who-can-use-it)
-4. [Key Features](#key-features)
-5. [System Architecture](#system-architecture)
-6. [Tech Stack](#tech-stack)
-7. [How the RAG Pipeline Works](#how-the-rag-pipeline-works)
-8. [Technical Design Decisions](#technical-design-decisions)
-9. [Evaluation and Testing](#evaluation-and-testing)
-10. [Installation and Setup](#installation-and-setup)
-11. [Project Structure](#project-structure)
-12. [What Each Part Does](#what-each-part-does)
-13. [Limitations](#limitations)
-14. [Future Improvements](#future-improvements)
-15. [Key Terms](#key-terms)
-16. [Author](#author)
+4. [Why RAG and Not Just a Chat Assistant](#why-RAG-and-Not-Just-a-Chat-Assistant)
+5. [Key Features](#key-features)
+6. [System Architecture](#system-architecture)
+7. [Tech Stack](#tech-stack)
+8. [How the RAG Pipeline Works](#how-the-rag-pipeline-works)
+9. [Technical Design Decisions](#technical-design-decisions)
+10. [Evaluation and Testing](#evaluation-and-testing)
+11. [Installation and Setup](#installation-and-setup)
+12. [Project Structure](#project-structure)
+13. [What Each Part Does](#what-each-part-does)
+14. [Limitations](#limitations)
+15. [Future Improvements](#future-improvements)
+16. [Key Terms](#key-terms)
+17. [Author](#author)
 
 ---
 
@@ -65,6 +66,20 @@ DocuMind solves both problems. It searches the organization's own documents firs
 | Students | Ask questions about lecture notes and research papers |
 
 ---
+
+
+   ## Why RAG and Not Just a Chat Assistant?
+
+   For one or two files, a chat assistant like Claude, ChatGPT or Gemini works well. RAG is built for what a chat window cannot do:
+
+   - **Scale:** organizations have thousands of documents, too many to paste into a chat. RAG searches them all and sends only the best pages to the AI.
+   - **Control:** the organization chooses which documents go in, who can use the system, and which AI model sits behind it.
+   - **Checkable answers:** every answer shows its file and page, and the system says so when the answer is not in the documents.
+   - **Built into their own tools:** it can live inside a website, an HR portal or a support system.
+   - **Cost and speed:** sending three pages to the AI is much cheaper than sending a whole library.
+   - **Fresh knowledge:** when a document changes, you update the document store. Nothing needs retraining.
+
+   I built DocuMind to understand this pipeline end to end, from reading files to deploying a live app.
 
 ## Key Features
 
@@ -287,13 +302,12 @@ RAG-Assistant/
 - The first question on a new file can take several minutes, because the file must be read and embedded first. Later questions are faster.
 - The answer step depends on the Gemini service, which can sometimes be busy and return a temporary "unavailable" error. Try again after a moment.
 - Retrieval can still pick the wrong page sometimes. Re-ranking helps but does not remove this completely.
-- The app currently runs locally and is not deployed yet.
+
 
 ---
 
 ## Future Improvements
 
-- **Deploy the app** online so anyone can try it.
 - **Word (.docx) support**, since many organizations keep their documents in Word.
 - **Faster ingestion**, so the first question does not take minutes.
 - **HyDE** (Hypothetical Document Embeddings) to improve how questions are matched to chunks.
