@@ -1,33 +1,58 @@
-from sentence_transformers import SentenceTransformer
+import os
+from dotenv import load_dotenv
+from openai import OpenAI
+
+load_dotenv()
 
 
-def embed_chunks(chunks, model_name="all-MiniLM-L6-v2"):
-    #load the embedding model
-    model = SentenceTransformer(model_name)
+def get_nvidia_client():
+    api_key = os.getenv("NVIDIA_API_KEY")
+    if not api_key:
+        raise ValueError("NVIDIA_API_KEY was not found. Please set it in your .env file.")
+    return OpenAI(
+        base_url="https://integrate.api.nvidia.com/v1",
+        api_key=api_key,
+    )
 
-    #extract the text from every chunk
-    texts = [chunk["text"]for chunk in chunks]
 
-    #convert the texts into numerical embeddings
-    embeddings = model.encode(texts)
+def embed_chunks(chunks, model_name=None):
+    # Use model name from argument or .env; raise clear error if not specified
+    model = model_name or os.getenv("NVIDIA_EMBED_MODEL")
+    if not model or not model.strip():
+        raise ValueError(
+            "NVIDIA_EMBED_MODEL is not configured. "
+            "Please set your chosen embedding model in .env (e.g. nvidia/llama-3.2-nv-embedqa-1b-v2)."
+        )
 
-    #loop through chunks and their embeddings together
-    for chunk, embedding in zip(chunks, embeddings):
+    client = get_nvidia_client()
+    texts = [chunk["text"] for chunk in chunks]
 
-        #save each embedding inside its chunk
-        chunk["embedding"] = embedding.tolist()
+    # Batch calls to avoid exceeding payload limits
+    batch_size = 32
+    all_embeddings = []
 
-    return chunks 
+    for i in range(0, len(texts), batch_size):
+        batch = texts[i : i + batch_size]
+        response = client.embeddings.create(
+            input=batch,
+            model=model.strip(),
+            extra_body={"input_type": "passage", "truncate": "END"},
+        )
+        all_embeddings.extend([item.embedding for item in response.data])
+
+    for chunk, embedding in zip(chunks, all_embeddings):
+        chunk["embedding"] = embedding
+
+    return chunks
+
 
 if __name__ == "__main__":
     from src.ingestion.pdf_reader import load_pdf
     from src.chunking.chunker import chunk_pages
 
-    #load the pdf,split it into chunks and embed them
     pages = load_pdf("Data/papers/raw/Lesson01-Introduction.pdf")
     chunks = chunk_pages(pages)
     embedded_chunks = embed_chunks(chunks)
 
-    #print the number of chunks and embedding dimensions
-    print("Number of chunks:",len(embedded_chunks))
+    print("Number of chunks:", len(embedded_chunks))
     print("Numbers in first embedding:", len(embedded_chunks[0]["embedding"]))
