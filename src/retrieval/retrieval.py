@@ -1,36 +1,56 @@
-
+import os
 import chromadb
-from sentence_transformers import SentenceTransformer
-from functools import lru_cache
+from dotenv import load_dotenv
+from openai import OpenAI
+
+load_dotenv()
 
 
-@lru_cache(maxsize=None)
-def get_embedding_model(model_name):
-    return SentenceTransformer(model_name)
+def get_nvidia_client():
+    api_key = os.getenv("NVIDIA_API_KEY")
+    if not api_key:
+        raise ValueError("NVIDIA_API_KEY was not found. Please set it in your .env file.")
+    return OpenAI(
+        base_url="https://integrate.api.nvidia.com/v1",
+        api_key=api_key,
+    )
 
 
 def retrieve(question, top_k=3, db_path="Data/vectorstore",
-             collection_name="lessons", model_name="all-MiniLM-L6-v2"):
+             collection_name="lessons", model_name=None):
 
-    # 1. Load the same embedding model used before
-    model = get_embedding_model(model_name)
+    model = model_name or os.getenv("NVIDIA_EMBED_MODEL")
+    if not model or not model.strip():
+        raise ValueError(
+            "NVIDIA_EMBED_MODEL is not configured. "
+            "Please set your chosen embedding model in .env (e.g. nvidia/llama-3.2-nv-embedqa-1b-v2)."
+        )
 
-    # 2. Convert the question into numbers
-    question_embedding = model.encode(question).tolist()
+    # 1. Convert the question into numbers using NVIDIA query embedding
+    client = get_nvidia_client()
+    response = client.embeddings.create(
+        input=[question],
+        model=model.strip(),
+        extra_body={"input_type": "query", "truncate": "END"},
+    )
+    question_embedding = response.data[0].embedding
 
-    # 3. Open the saved database and get the collection
-    client = chromadb.PersistentClient(path=db_path)
-    collection = client.get_collection(name=collection_name)
+    # 2. Open the saved database and get the collection
+    chroma_client = chromadb.PersistentClient(path=db_path)
+    collection = chroma_client.get_collection(name=collection_name)
 
-    # 4. Ask ChromaDB for the closest chunks
+    count = collection.count()
+    if count == 0:
+        return []
+
+    # 3. Ask ChromaDB for the closest chunks
     search_results = collection.query(
         query_embeddings=[question_embedding],
-        n_results=min(top_k, collection.count())
+        n_results=min(top_k, count),
     )
 
-    # 5. Build a clean list of results
+    # 4. Build a clean list of results
     results = []
-
     documents = search_results["documents"][0]
     metadatas = search_results["metadatas"][0]
     distances = search_results["distances"][0]
@@ -40,16 +60,14 @@ def retrieve(question, top_k=3, db_path="Data/vectorstore",
             "text": text,
             "page": metadata.get("page", 0),
             "source": metadata.get("source", "Unknown"),
-            "distance": distance
+            "distance": distance,
         })
 
     return results
 
 
 if __name__ == "__main__":
-    # 6. Ask a question and print the retrieved chunks
     question = "What is a file system?"
-
     results = retrieve(question)
 
     for result in results:
